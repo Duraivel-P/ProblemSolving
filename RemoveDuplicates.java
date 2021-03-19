@@ -1,33 +1,28 @@
 class RemoveDuplicates {
     
-  public static int removeDuplicates(int[] nums) {
-        
-        int count = 0;
+ public static int removeDuplicates(int[] nums) {
         int i= 0;
         int k =0;
         int j = 1;
         int length = nums.length;
-        int temp[] = new int[nums.length];
+      
+        if(length==0)
+        {
+            return k;
+        }
         
         while(i<length&& j<length)
         {
-            if(nums[i] == nums[j])
+            if(nums[i] != nums[j])
             {    
-               count++; 
-            }
-            else {         	
-            temp[k++] = nums[i]; 
+              nums[k++] = nums[i]; 
             }
             i++;
             j++;
         }
       
-        if(nums.length!=0){
-        temp[k++] = nums[j-1];
-        }
+        nums[k++] = nums[length-1];
       
-        System.arraycopy(temp, 0, nums, 0, length);
-        
         return k;
     }
 
